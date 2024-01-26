@@ -75,7 +75,7 @@ npx hardhat --network [network-name] get-token-balance
 To send tokens to another chain:
 
 ```
-npx hardhat --network [network-name] bridge-token.ts --dest [destination-chain-id] --amount [amount]
+npx hardhat --network [network-name] bridge-token --dest [destination-chain-id] --amount [amount]
 ```
 
 ## Contract Breakdown of `HelloERC20`
