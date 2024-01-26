@@ -39,7 +39,7 @@ Before you begin, ensure you have the following installed:
 Deploy the HelloERC20 contract to your desired networks. This must be done for each network you wish to operate on.
 
 ```
-npx hardhat run --network [network-name] deploy
+npx hardhat --network [network-name] deploy
 ```
 
 ## Configuration
@@ -57,7 +57,7 @@ Edit the `networks-testnet.json` file and include all of the networks the contra
 Once all contracts are deployed across the desired networks and listed in `networks-testnet.json`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
 
 ```
-npx hardhat run --network [network-name] configure
+npx hardhat --network [network-name] configure
 ```
 
 ## Usage
@@ -67,7 +67,7 @@ npx hardhat run --network [network-name] configure
 To check the balance of tokens on a particular chain:
 
 ```
-npx hardhat run --network [network-name] get-token-balance
+npx hardhat --network [network-name] get-token-balance
 ```
 
 ### Bridging Tokens to Another Chain
@@ -75,7 +75,7 @@ npx hardhat run --network [network-name] get-token-balance
 To send tokens to another chain:
 
 ```
-npx hardhat run --network [network-name] bridge-token.ts --dest [destination-chain-id] --amount [amount]
+npx hardhat --network [network-name] bridge-token.ts --dest [destination-chain-id] --amount [amount]
 ```
 
 ## Contract Breakdown of `HelloERC20`
