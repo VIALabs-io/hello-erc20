@@ -1,6 +1,5 @@
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";
-import "@nomicfoundation/hardhat-ethers";
 import "@typechain/hardhat";
 
 import "./tasks/get-token-balance";
@@ -57,7 +56,6 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
-		
 		hardhat: {
 			live: false,
 			deploy: ["deploy/hardhat/"],
