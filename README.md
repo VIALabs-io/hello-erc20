@@ -19,6 +19,8 @@ Please visit [node documentation link](https://docs.npmjs.com/downloading-and-in
 
 ## Installation
 
+Please open a terminal to run the following commands. You can use any terminal of your choice, including the built in terminal in vscode (Terminal -> New Terminal)
+
 1. **Clone the Repository**: 
    ```
    git clone https://github.com/CryptoLinkTech/hello-erc20.git
