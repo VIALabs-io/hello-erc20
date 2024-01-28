@@ -38,7 +38,7 @@ Please open a terminal to run the following commands. You can use any terminal o
    ```
 
 3. **Set Up Environment Variables**:
-   Edit the `.env` file to set your EVM private key for contract deployment.
+   Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
     ```
     PRIVATE_KEY=0000000000000000000000000000
     ```
