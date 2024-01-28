@@ -15,6 +15,8 @@ Before you begin, ensure you have the following installed:
 - Node.js and npm (Node Package Manager)
 - A text editor such as VSCode for editing `.sol` and `.ts` files
 
+Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) for more information.
+
 ## Installation
 
 1. **Clone the Repository**: 
