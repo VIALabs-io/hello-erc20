@@ -28,10 +28,6 @@ Please open a terminal to run the following commands. You can use any terminal o
    git clone https://github.com/CryptoLinkTech/hello-erc20.git
    ```
 
-   ```
-   cd hello-erc20
-   ```
-
    After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc20 in your IDE of choice.
 
 2. **Install Dependencies**:
