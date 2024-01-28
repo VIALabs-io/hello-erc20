@@ -24,6 +24,8 @@ Please open a terminal to run the following commands. You can use any terminal o
 1. **Clone the Repository**: 
    ```
    git clone https://github.com/CryptoLinkTech/hello-erc20.git
+   ```
+   ```
    cd hello-erc20
    ```
 
