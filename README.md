@@ -14,8 +14,10 @@ HelloERC20 is an example ERC20 token implemented in Solidity, designed for cross
 Before you begin, ensure you have the following installed:
 - Node.js and npm (Node Package Manager)
 - A text editor such as VSCode for editing `.sol` and `.ts` files
+- GIT installed
 
-Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) for more information.
+Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
+  
 
 ## Installation
 
@@ -25,6 +27,7 @@ Please open a terminal to run the following commands. You can use any terminal o
    ```
    git clone https://github.com/CryptoLinkTech/hello-erc20.git
    ```
+
    ```
    cd hello-erc20
    ```
