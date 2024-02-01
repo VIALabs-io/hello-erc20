@@ -46,8 +46,16 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 Deploy the HelloERC20 contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
 
+1. **Fantom Testnet Deployment:**
+
 ```
-npx hardhat --network [network-name] deploy
+npx hardhat --network fantom-testnet deploy
+```
+
+2. **Polygon Testnet Deployment:**
+
+```
+npx hardhat --network polygon-testnet deploy
 ```
 
 ## Configuration
@@ -63,8 +71,16 @@ Edit the `networks-testnet.json` file and include all of the networks the contra
 
 Once all contracts are deployed across the desired networks and listed in `networks-testnet.json`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
 
+1. **Fantom Testnet Configuration:**
+
 ```
-npx hardhat --network [network-name] configure
+npx hardhat --network fantom-testnet configure
+```
+
+2. **Polygon Testnet Configuration:**
+
+```
+npx hardhat --network polygon-testnet configure
 ```
 
 ## Usage
@@ -74,15 +90,15 @@ npx hardhat --network [network-name] configure
 To check the balance of tokens on a particular chain:
 
 ```
-npx hardhat --network [network-name] get-token-balance
+npx hardhat --network fantom-testnet get-token-balance
 ```
 
 ### Bridging Tokens to Another Chain
 
-To send tokens to another chain:
+To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
 
 ```
-npx hardhat --network [network-name] bridge-token --dest [destination-chain-id] --amount [amount]
+npx hardhat --network fantom-testnet bridge-token --dest 80001 --amount 50
 ```
 
 ## Contract Breakdown of `HelloERC20`
