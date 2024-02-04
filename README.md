@@ -29,18 +29,20 @@ Please open a terminal to run the following commands. You can use any terminal o
 git clone https://github.com/CryptoLinkTech/hello-erc20.git
 ```
 
-2. After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc20 in your IDE of choice.
+2. **Open in IDE**: 
+After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc20 in your IDE of choice.
 ```bash
 code hello-erc20
 ```
 
-3. **Install Dependencies**:
+1. **Install Dependencies**: 
+In vscode (Terminal -> New Terminal)
 ```bash
 npm install
 ```
 
-4. **Set Up Environment Variables**:
-   Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
+1. **Set Up Environment Variables**:
+Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
 ```bash
 PRIVATE_KEY=0000000000000000000000000000
 ```
