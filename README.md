@@ -1,10 +1,10 @@
 # HelloERC20
 
-HelloERC20 is an example ERC20 token implemented in Solidity, designed for cross-chain operations without relying on traditional bridge mechanisms. Utilizing the CryptoLink.Tech NPM package and MessageClient extension, it demonstrates a bridgeless approach to native token minting and burning across different blockchain networks.
+`HelloERC20` is an example `ERC20` token implemented in Solidity, designed for cross-chain operations without relying on traditional bridge mechanisms. Utilizing the CryptoLink.Tech NPM package and MessageClient extension, it demonstrates a bridgeless approach to native token minting and burning across different blockchain networks.
 
 ## Features
 
-- **ERC20 Token Implementation**: A standard ERC20 token with additional burnable functionality.
+- **ERC20 Token Implementation**: A standard `ERC20` token with additional burnable functionality.
 - **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
 - **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
 - **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
@@ -25,61 +25,51 @@ Please visit [node documentation link](https://docs.npmjs.com/downloading-and-in
 Please open a terminal to run the following commands. You can use any terminal of your choice, including the built in terminal in vscode (Terminal -> New Terminal)
 
 1. **Clone the Repository**: 
-   ```
-   git clone https://github.com/CryptoLinkTech/hello-erc20.git
-   ```
+```bash
+git clone https://github.com/CryptoLinkTech/hello-erc20.git
+```
 
-   After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc20 in your IDE of choice.
+2. After cloning the repository, if using vscode or a similar IDE, you can now open the hello-erc20 in your IDE of choice.
+```bash
+code hello-erc20
+```
 
-2. **Install Dependencies**:
-   ```
-   npm install
-   ```
+3. **Install Dependencies**:
+```bash
+npm install
+```
 
-3. **Set Up Environment Variables**:
+4. **Set Up Environment Variables**:
    Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
-    ```
-    PRIVATE_KEY=0000000000000000000000000000
-    ```
+```bash
+PRIVATE_KEY=0000000000000000000000000000
+```
 
 ## Deployment
 
-Deploy the HelloERC20 contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
+Deploy the `HelloERC20` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
 
-1. **Fantom Testnet Deployment:**
-
-```
+1. **Fantom Testnet**:
+```bash
 npx hardhat --network fantom-testnet deploy
 ```
 
-2. **Polygon Testnet Deployment:**
-
-```
+2. **Polygon Testnet**:
+```bash
 npx hardhat --network polygon-testnet deploy
 ```
 
 ## Configuration
 
-Edit the `networks-testnet.json` file and include all of the networks the contract is deployed on.
-
-```
-[
-    "fantom-testnet",
-    "polygon-testnet"
-]
-```
-
 Once all contracts are deployed across the desired networks and listed in `networks-testnet.json`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
 
-1. **Fantom Testnet Configuration:**
-
-```
+1. **Fantom Testnet**:
+```bash
 npx hardhat --network fantom-testnet configure
 ```
 
-2. **Polygon Testnet Configuration:**
-
-```
+2. **Polygon Testnet**:
+```bash
 npx hardhat --network polygon-testnet configure
 ```
 
@@ -89,7 +79,7 @@ npx hardhat --network polygon-testnet configure
 
 To check the balance of tokens on a particular chain:
 
-```
+```bash
 npx hardhat --network fantom-testnet get-token-balance
 ```
 
@@ -97,13 +87,42 @@ npx hardhat --network fantom-testnet get-token-balance
 
 To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
 
-```
+```bash
 npx hardhat --network fantom-testnet bridge-token --dest 80001 --amount 50
 ```
 
 ## Contract Breakdown of `HelloERC20`
 
-This contract is an ERC20 token with additional functionalities for cross-chain operations. It inherits from `ERC20Burnable` for standard ERC20 functionality with burn capabilities and from `MessageClient` for handling cross-chain messages.
+This contract is an `ERC20` token with additional functionalities for cross-chain operations. It inherits from `ERC20Burnable` for standard `ERC20` functionality with burn capabilities and from `MessageClient` for handling cross-chain messages.
+
+```solidity
+pragma solidity =0.8.17;
+
+import "@cryptolink/contracts/message/MessageClient.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
+
+contract HelloERC20 is ERC20Burnable, MessageClient {
+    constructor() ERC20("HelloERC20", "HELLO") {
+        _mint(msg.sender, 1_000_000 ether);
+    }
+
+    function bridge(uint _destChainId, address _recipient, uint _amount) external onlyActiveChain(_destChainId) {
+        // burn tokens
+        _burn(msg.sender, _amount);
+
+        // send cross chain message
+        _sendMessage(_destChainId, abi.encode(_recipient, _amount));
+    }
+
+    function messageProcess(uint, uint _sourceChainId, address _sender, address, uint, bytes calldata _data) external override  onlySelf(_sender, _sourceChainId)  {
+        // decode message
+        (address _recipient, uint _amount) = abi.decode(_data, (address, uint));
+
+        // mint tokens
+        _mint(_recipient, _amount);
+    }
+}
+```
 
 ### Constructor
 
