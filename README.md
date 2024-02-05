@@ -93,6 +93,14 @@ To send tokens to another chain it is required to set the `--dest` parameter to 
 npx hardhat --network fantom-testnet bridge-token --dest 80001 --amount 50
 ```
 
+### Check Tokens on Destination Chain
+
+You can now check the balance on the destination chain. **Please give the transaction some time to process.** You should see your balance increase on the destination chain:
+
+```bash
+npx hardhat --network polygon-testnet get-token-balance
+```
+
 ## Contract Breakdown of `HelloERC20`
 
 This contract is an `ERC20` token with additional functionalities for cross-chain operations. It inherits from `ERC20Burnable` for standard `ERC20` functionality with burn capabilities and from `MessageClient` for handling cross-chain messages.
