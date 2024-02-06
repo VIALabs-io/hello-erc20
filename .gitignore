@@ -15,6 +15,8 @@ chains-testnet.json
 addresses-mainnet.json
 chains-mainnet.json
 
+package-lock.json
+
 #Hardhat files
 cache
 artifacts
