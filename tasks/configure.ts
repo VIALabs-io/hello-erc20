@@ -4,9 +4,6 @@ const networks = require("../networks-testnet.json");
 
 const fs = require('fs');
 
-// bugfix for metis + ethers6
-const GAS_LIMIT = 0x500000;
-
 task("configure", "")
 	.addOptionalParam("signer", "Custom signer (private key)")
 	.addOptionalParam("provider", "Custom provider RPC url")
@@ -30,5 +27,5 @@ task("configure", "")
 	
 		console.log('setting remote contract addresses .. CLT message address:', chainsConfig[hre.network.config.chainId].message);
 		const helloERC20 = await ethers.getContract("HelloERC20");
-		await (await helloERC20.configureClient(chainsConfig[hre.network.config.chainId].message, chainids, addresses, confirmations, { gasLimit: GAS_LIMIT })).wait();
+		await (await helloERC20.configureClient(chainsConfig[hre.network.config.chainId].message, chainids, addresses, confirmations)).wait();
 	});
