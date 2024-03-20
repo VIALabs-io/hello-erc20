@@ -46,7 +46,7 @@ const config: any = {
 		},
 		"polygon-testnet": {
 			chainId: 80001,
-			url: "https://rpc-mumbai.maticvigil.com/",
+			url: "https://polygon-testnet.public.blastapi.io",
 			live: false,
 			accounts: accounts,
 		},
