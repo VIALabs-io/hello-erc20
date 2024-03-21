@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed:
 - Node.js and npm (Node Package Manager)
 - A text editor such as VSCode for editing `.sol` and `.ts` files
 - GIT installed
-- Testnet Tokens ([fantom testnet faucet](https://faucet.fantom.network/) and [polygon testnet faucet](https://faucet.polygon.technology/))
+- Testnet Tokens ([fantom testnet faucet](https://faucet.fantom.network/), [polygon testnet faucet](https://faucet.polygon.technology/) and [rollux testnet faucet](https://rollux.id/faucet?chainId=57000))
 
 Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
 
@@ -61,6 +61,11 @@ npx hardhat --network fantom-testnet deploy
 npx hardhat --network polygon-testnet deploy
 ```
 
+3. **Rollux Testnet**:
+```bash
+npx hardhat --network rollux-testnet deploy
+```
+
 ## Configuration
 
 Once all contracts are deployed across the desired networks and listed in `networks-testnet.json`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
@@ -73,6 +78,11 @@ npx hardhat --network fantom-testnet configure
 2. **Polygon Testnet**:
 ```bash
 npx hardhat --network polygon-testnet configure
+```
+
+3. **Rollux Testnet**:
+```bash
+npx hardhat --network rollux-testnet configure
 ```
 
 ## Usage

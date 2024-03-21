@@ -56,6 +56,12 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
+		"rollux-testnet": {
+			chainId: 57000
+			url: "https://rpc-tanenbaum.rollux.com",
+			live: false,
+			accounts: accounts,
+		},
 		hardhat: {
 			live: false,
 			deploy: ["deploy/hardhat/"],
