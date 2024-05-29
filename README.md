@@ -90,7 +90,7 @@ npx hardhat --network fantom-testnet get-token-balance
 To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network fantom-testnet bridge-token --dest 80001 --amount 50
+npx hardhat --network fantom-testnet bridge-token --dest 80002 --amount 50
 ```
 
 ### Check Tokens on Destination Chain
