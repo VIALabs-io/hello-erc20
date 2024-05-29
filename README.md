@@ -1,12 +1,12 @@
 # HelloERC20
 
-`HelloERC20` is an example `ERC20` token implemented in Solidity, designed for cross-chain operations without relying on traditional bridge mechanisms. Utilizing the CryptoLink.Tech NPM package and MessageClient extension, it demonstrates a bridgeless approach to native token minting and burning across different blockchain networks.
+`HelloERC20` is an example `ERC20` token implemented in Solidity, designed for cross-chain operations without relying on traditional bridge mechanisms. Utilizing the VIA Labs NPM package and MessageClient extension, it demonstrates a bridgeless approach to native token minting and burning across different blockchain networks.
 
 ## Features
 
 - **ERC20 Token Implementation**: A standard `ERC20` token with additional burnable functionality.
 - **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
-- **CryptoLink.Tech Integration**: Leverages the CryptoLink.Tech NPM package for seamless cross-chain communication.
+- **VIA Labs Integration**: Leverages the VIA Labs NPM package for seamless cross-chain communication.
 - **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Please open a terminal to run the following commands. You can use any terminal o
 
 1. **Clone the Repository**: 
 ```bash
-git clone https://github.com/CryptoLinkTech/hello-erc20.git
+git clone https://github.com/VIALabs-io/hello-erc20.git
 ```
 
 2. **Open in IDE**: 
@@ -49,7 +49,7 @@ PRIVATE_KEY=0000000000000000000000000000
 
 ## Deployment
 
-Deploy the `HelloERC20` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets)
+Deploy the `HelloERC20` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
 1. **Fantom Testnet**:
 ```bash
@@ -58,7 +58,7 @@ npx hardhat --network fantom-testnet deploy
 
 2. **Polygon Testnet**:
 ```bash
-npx hardhat --network polygon-testnet deploy
+npx hardhat --network polygon-amoy deploy
 ```
 
 ## Configuration
@@ -72,7 +72,7 @@ npx hardhat --network fantom-testnet configure
 
 2. **Polygon Testnet**:
 ```bash
-npx hardhat --network polygon-testnet configure
+npx hardhat --network polygon-amoy configure
 ```
 
 ## Usage
@@ -87,7 +87,7 @@ npx hardhat --network fantom-testnet get-token-balance
 
 ### Bridging Tokens to Another Chain
 
-To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/CryptoLinkTech/npm?tab=readme-ov-file#testnets).
+To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
 npx hardhat --network fantom-testnet bridge-token --dest 80001 --amount 50
@@ -98,7 +98,7 @@ npx hardhat --network fantom-testnet bridge-token --dest 80001 --amount 50
 You can now check the balance on the destination chain. **Please give the transaction some time to process.** You should see your balance increase on the destination chain:
 
 ```bash
-npx hardhat --network polygon-testnet get-token-balance
+npx hardhat --network polygon-amoy get-token-balance
 ```
 
 ## Contract Breakdown of `HelloERC20`
@@ -108,7 +108,7 @@ This contract is an `ERC20` token with additional functionalities for cross-chai
 ```solidity
 pragma solidity =0.8.17;
 
-import "@cryptolink/contracts/message/MessageClient.sol";
+import "@vialabs-io/contracts/message/MessageClient.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
 contract HelloERC20 is ERC20Burnable, MessageClient {

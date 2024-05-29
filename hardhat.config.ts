@@ -44,9 +44,9 @@ const config: any = {
 			live: false,
 			accounts: accounts,
 		},
-		"polygon-testnet": {
-			chainId: 80001,
-			url: "https://polygon-testnet.public.blastapi.io",
+		"polygon-amoy": {
+			chainId: 80002,
+			url: 'https://rpc-amoy.polygon.technology/',
 			live: false,
 			accounts: accounts,
 		},

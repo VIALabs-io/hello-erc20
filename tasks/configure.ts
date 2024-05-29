@@ -1,5 +1,5 @@
 import { task } from "hardhat/config";
-const chainsConfig = require('@cryptolink/contracts/config/chains');
+const chainsConfig = require('@vialabs-io/contracts/config/chains');
 const networks = require("../networks-testnet.json");
 
 const fs = require('fs');

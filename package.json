@@ -6,7 +6,7 @@
 	"license": "MIT",
 	"private": true,
 	"dependencies": {
-		"@cryptolink/contracts": "https://github.com/CryptoLinkTech/npm",
+		"@vialabs-io/contracts": "https://github.com/VIALabs-io/contracts",
 		"@openzeppelin/contracts": "^4.9.5"
 	},
 	"devDependencies": {
