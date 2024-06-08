@@ -1,3 +1,4 @@
+import dotenv from "dotenv";
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";
 import "@typechain/hardhat";
@@ -6,7 +7,6 @@ import "./tasks/get-token-balance";
 import "./tasks/bridge-token";
 import "./tasks/configure";
 
-const dotenv = require("dotenv");
 dotenv.config({ path: __dirname + "/.env" });
 
 const accounts = [
@@ -19,40 +19,16 @@ const config: any = {
 		token: "ETH",
 		coinmarketcap: process.env.CMC_API_KEY || "",
 	},
-	networks: {
-		"ethereum-goerli": {
-			chainId: 5,
-			url: "https://ethereum-goerli.publicnode.com",
-			live: false,
-			accounts: accounts,
-		},		
-		"ethereum-holesky": {
-			chainId: 17000,
-			url: "https://ethereum-holesky.publicnode.com",
-			live: false,
-			accounts: accounts,
-		},		
+	networks: {		
 		"ethereum-sepolia": {
 			chainId: 11155111,
 			url: "https://eth-sepolia.public.blastapi.io",
-			live: false,
-			accounts: accounts,
-		},		
-		"fantom-testnet": {
-			chainId: 4002,
-			url: "https://rpc.testnet.fantom.network",
 			live: false,
 			accounts: accounts,
 		},
 		"polygon-amoy": {
 			chainId: 80002,
 			url: 'https://rpc-amoy.polygon.technology/',
-			live: false,
-			accounts: accounts,
-		},
-		"sonic-testnet": {
-			chainId: 64165,
-			url: "https://rpc.sonic.fantom.network/",
 			live: false,
 			accounts: accounts,
 		},

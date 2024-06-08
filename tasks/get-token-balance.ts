@@ -1,8 +1,5 @@
 import { task } from "hardhat/config";
 
-// bugfix for metis + ethers6
-const GAS_LIMIT = 0x500000;
-
 task("get-token-balance", "")
 	.addOptionalParam("wallet", "Custom wallet")
 	.addOptionalParam("signer", "Custom signer (private key)")

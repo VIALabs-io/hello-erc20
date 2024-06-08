@@ -15,7 +15,7 @@ Before you begin, ensure you have the following installed:
 - Node.js and npm (Node Package Manager)
 - A text editor such as VSCode for editing `.sol` and `.ts` files
 - GIT installed
-- Testnet Tokens ([fantom testnet faucet](https://faucet.fantom.network/) and [polygon testnet faucet](https://faucet.polygon.technology/))
+- Testnet Tokens ([ethereum sepolia faucet](https://chainstack.com/sepolia-faucet/) and [polygon testnet faucet](https://faucet.polygon.technology/))
 
 Please visit [node documentation link](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) and the [git install documentation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) for more information.
 
@@ -51,9 +51,9 @@ PRIVATE_KEY=0000000000000000000000000000
 
 Deploy the `HelloERC20` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
-1. **Fantom Testnet**:
+1. **Ethereum Sepolia**:
 ```bash
-npx hardhat --network fantom-testnet deploy
+npx hardhat --network ethereum-sepolia deploy
 ```
 
 2. **Polygon Testnet**:
@@ -63,11 +63,20 @@ npx hardhat --network polygon-amoy deploy
 
 ## Configuration
 
-Once all contracts are deployed across the desired networks and listed in `networks-testnet.json`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
+Edit the `networks.ts` file and include all of the networks the contract is deployed on.
 
-1. **Fantom Testnet**:
+```javascript
+[
+    "ethereum-sepolia",
+    "polygon-amoy"
+]
+```
+
+Once all contracts are deployed across the desired networks and listed in `networks.ts`, configure them using the provided script. Remember, if a new network is added later, all contracts must be reconfigured.
+
+1. **Ethereum Sepolia**:
 ```bash
-npx hardhat --network fantom-testnet configure
+npx hardhat --network ethereum-sepolia configure
 ```
 
 2. **Polygon Testnet**:
@@ -82,7 +91,7 @@ npx hardhat --network polygon-amoy configure
 To check the balance of tokens on a particular chain:
 
 ```bash
-npx hardhat --network fantom-testnet get-token-balance
+npx hardhat --network ethereum-sepolia get-token-balance
 ```
 
 ### Bridging Tokens to Another Chain
@@ -90,7 +99,7 @@ npx hardhat --network fantom-testnet get-token-balance
 To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
-npx hardhat --network fantom-testnet bridge-token --dest 80002 --amount 50
+npx hardhat --network ethereum-sepolia bridge-token --dest 80002 --amount 50
 ```
 
 ### Check Tokens on Destination Chain
