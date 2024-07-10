@@ -35,17 +35,20 @@ After cloning the repository, if using vscode or a similar IDE, you can now open
 code hello-erc20
 ```
 
-1. **Install Dependencies**: 
+3. **Install Dependencies**: 
 In vscode (Terminal -> New Terminal)
 ```bash
 npm install
 ```
 
-1. **Set Up Environment Variables**:
+4. **Set Up Environment Variables**:
 Create a new `.env` file to set your EVM private key for contract deployment or copy and edit the existing `.env.example` to `.env`
 ```bash
 PRIVATE_KEY=0000000000000000000000000000
 ```
+
+5. **Gas tokens**:
+Make sure you have enough gas to complete the contract deployments and a couple test transactions
 
 ## Deployment
 
