@@ -6,7 +6,7 @@
 
 - **ERC20 Token Implementation**: A standard `ERC20` token with additional burnable functionality.
 - **Cross-Chain Functionality**: Native support for cross-chain interactions without using a bridge.
-- **VIA Labs Integration**: Leverages the VIA Labs NPM package for seamless cross-chain communication.
+- **VIA Labs Integration**: Leverages the VIA Labs package for seamless cross-chain communication.
 - **Configurable on Multiple Networks**: Can be deployed and configured across various blockchain networks.
 
 ## Prerequisites
@@ -99,7 +99,7 @@ npx hardhat --network ethereum-sepolia get-token-balance
 
 ### Bridging Tokens to Another Chain
 
-To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
+To send tokens to another chain it is required to set the `--dest` parameter to the destination chain id. The example below uses the id for the Polygon Testnet. Chain IDs can be looked up in the [Package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets).
 
 ```bash
 npx hardhat --network ethereum-sepolia bridge-token --dest 80002 --amount 50
