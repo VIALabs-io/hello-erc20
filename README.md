@@ -1,6 +1,6 @@
 # HelloERC20
 
-`HelloERC20` is an example `ERC20` token implemented in Solidity, designed for cross-chain operations without relying on traditional bridge mechanisms. Utilizing the VIA Labs NPM package and MessageClient extension, it demonstrates a bridgeless approach to native token minting and burning across different blockchain networks.
+`HelloERC20` is an example `ERC20` token implemented in Solidity, designed for cross-chain operations without relying on traditional bridge mechanisms. Utilizing the VIA Labs package and MessageClient extension, it demonstrates a bridgeless approach to native token minting and burning across different blockchain networks.
 
 ## Features
 
@@ -52,7 +52,7 @@ Make sure you have enough gas to complete the contract deployments and a couple 
 
 ## Deployment
 
-Deploy the `HelloERC20` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [NPM package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
+Deploy the `HelloERC20` contract to your desired networks. This must be done for each network you wish to operate on. You can see a list of our networks in the [Package documentation](https://github.com/VIALabs-io/contracts?tab=readme-ov-file#testnets)
 
 1. **Ethereum Sepolia**:
 ```bash
