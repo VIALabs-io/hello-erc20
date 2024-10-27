@@ -6,7 +6,8 @@
 	"license": "MIT",
 	"private": true,
 	"dependencies": {
-		"@vialabs-io/contracts": "https://github.com/VIALabs-io/contracts",
+		"@vialabs-io/npm-registry": "github:VIALabs-io/npm-registry",
+		"@vialabs-io/npm-contracts": "github:VIALabs-io/npm-contracts",
 		"@openzeppelin/contracts": "^4.9.5"
 	},
 	"devDependencies": {

@@ -2,12 +2,13 @@
 // (c)2024 Atlas (atlas@vialabs.io)
 pragma solidity =0.8.17;
 
-import "@vialabs-io/contracts/message/MessageClient.sol";
+import "@vialabs-io/npm-contracts/MessageClient.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
 
 contract HelloERC20 is ERC20Burnable, MessageClient {
     constructor() ERC20("HelloERC20", "HELLO") {
         _mint(msg.sender, 1_000_000 ether);
+        MESSAGE_OWNER = msg.sender;
     }
 
     function bridge(uint _destChainId, address _recipient, uint _amount) external onlyActiveChain(_destChainId) {
