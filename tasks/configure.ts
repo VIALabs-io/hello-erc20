@@ -1,6 +1,6 @@
 import fs from 'fs';
 import { task } from "hardhat/config";
-import chainsConfig from "@vialabs-io/contracts/config/chains";
+import { getChainConfig } from "@vialabs-io/npm-registry";
 import networks from "../networks";
 
 task("configure", "")
@@ -24,7 +24,12 @@ task("configure", "")
 			confirmations.push(1);
 		}
 	
-		console.log('setting remote contract addresses .. CLT message address:', chainsConfig[hre.network.config.chainId].message);
+		const chainConfig = getChainConfig(hre.network.config.chainId);
+		if (!chainConfig) {
+			throw new Error(`Chain configuration not found for chainId: ${hre.network.config.chainId}`);
+		}
+
+		console.log('setting remote contract addresses .. CLT message address:', chainConfig.message);
 		const helloERC20 = await ethers.getContract("HelloERC20");
-		await (await helloERC20.configureClient(chainsConfig[hre.network.config.chainId].message, chainids, addresses, confirmations)).wait();
+		await (await helloERC20.configureClient(chainConfig.message, chainids, addresses, confirmations)).wait();
 	});
