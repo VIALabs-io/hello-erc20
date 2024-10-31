@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 import "hardhat-deploy";
 import "hardhat-deploy-ethers";
 import "@typechain/hardhat";
+import "@matterlabs/hardhat-zksync-solc";
 
 import "./tasks/get-token-balance";
 import "./tasks/bridge-token";
@@ -31,6 +32,13 @@ const config: any = {
 			url: 'https://rpc-amoy.polygon.technology/',
 			live: false,
 			accounts: accounts,
+		},
+		"cronoszk-testnet": {
+			chainId: 282,
+			url: "https://testnet.zkevm.cronos.org",
+			live: false,
+			accounts: accounts,
+			zksync: true,
 		},
 		hardhat: {
 			live: false,
